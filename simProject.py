@@ -8,6 +8,7 @@ Notes:
 """
 import sys
 from numpy import random
+from scipy.stats import skewnorm
 
 distance = 0
 
@@ -20,6 +21,11 @@ elif sys.argv[1] == "uniform":
     printers = [round(x) for x in printers]
     printers.sort()
 
+#[0, 2, 4, 8, 10, 16, 20, 28] = 14ish, lowest distance so far
+#[1.0, 4.0, 6.0, 11.0, 12.0, 16.0, 27.0, 28.0] = 14.8966
+elif sys.argv[1] == "custom":
+    printers = [1.0, 4.0, 8.0, 9.0, 12.0, 13.0, 16.0, 33.0]
+
 #can hardcode other generation schemes if desired later    
 else:
     printers = [0] * 8
@@ -31,7 +37,7 @@ fromFloor = [round(x) for x in fromFloor]
 
 #The floor the student is going to after printing something
 #change when we figure out skewed normals
-toFloor = random.uniform(-2, 38, int(sys.argv[2]))
+toFloor = skewnorm.rvs(0.72554004, loc = 2.444444444, scale = 4.747421584, size = int(sys.argv[2]))
 toFloor = [round(x) for x in toFloor]
     
 for i in range(int(sys.argv[2])):
@@ -58,7 +64,7 @@ for i in range(int(sys.argv[2])):
             distance += (2 * abs(closestToDest - toFloor[i]))
 
 print(printers)            
-print( distance / int(sys.argv[2]))
+print("Average number of floors traveled: " + str(distance / int(sys.argv[2])))
 
    
     
