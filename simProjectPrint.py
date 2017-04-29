@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Command line argument format is python simProject.py <printer format> <number of trials>
+Dependencies: NumPy and SciPy
 Notes: 
     With regards to floors so the numbers don't get confusing
     0 is Cathedral ground floor, 1-38 are floors 1-38
@@ -21,8 +22,6 @@ elif sys.argv[1] == "uniform":
     printers = [round(x) for x in printers]
     printers.sort()
 
-#[0, 2, 4, 8, 10, 16, 20, 28] = 14ish, lowest distance so far
-#[1.0, 4.0, 6.0, 11.0, 12.0, 16.0, 27.0, 28.0] = 14.8966
 elif sys.argv[1] == "custom":
     printers = [1.0, 4.0, 8.0, 9.0, 12.0, 13.0, 16.0, 33.0]
 
@@ -65,6 +64,4 @@ for i in range(int(sys.argv[2])):
 
 print(printers)            
 print("Average number of floors traveled: " + str(distance / int(sys.argv[2])))
-
-   
     

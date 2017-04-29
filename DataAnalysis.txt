@@ -1,0 +1,86 @@
+Printer Simulation Data
+
+Printer Setup [0, 0, 0, 0, 0, 0, 0, 0] - what the labs are like now
+Average number of floors traveled = 24.2236
+Number of trials to get this number = 10000
+
+Best Simulated Printer Setup [1.0, 5.0, 8.0, 9.0, 12.0, 13.0, 16.0, 33.0]
+Average number of floors traveled = 14.7636
+Number of trials to get this number = 10000 
+
+Worst Simulated Printer Setup [38, 38, 38, 38, 38, 38, 38, 38]
+Average number of floors traveled = 81.0161
+Number of trials to get this number = 10000
+
+
+Printers are generated via a uniform distribution from -2 to 38, -2 being
+outside the building, -1 being the cathedral basement
+
+Since the number of combinations for 38C8 is 48903492, it was not feasible
+due to time and processor constraints to brute force the best answer.
+As such, the method done to get this result was to make two lists,
+append every list of printer setups to one, append the average floors
+traveled to the other, then find the index of the minimum average traveled
+floors and the associated setup in the other list. It does not appear possible
+to have a setup where the average floors traveled is smaller than 14. Most
+range from 15 to 17. 
+
+Ultimately we can conclude that the printer setup in the cathedral is 
+not optimal under any circumstances, and could stand to have some printers
+moved to other floors.
+
+Desk Simulation Data
+Number of desk attendants on duty: 4
+Total number of visits in a day: 8.6953
+Minutes the lab is open: 870
+Minutes utilized: 17.395022556286616
+Max utilization (minutes/total minutes for all workers) = 0.004998
+Number of trials to get this number = 10000
+
+From the collected data it was established that the help desk was used at a
+rate of 0.6 people per hour, and an assumed average  duration of that desk
+use was 2 minutes. The labs are open from 7:30 am to 10 pm on monday through
+Thursday and there are 4 attendants on duty. The help desk utilization is less 
+than one percent, and thus 4 people for the two labs are unneeded.
+
+Computer Usage Simulation Data
+
+Average of max concurrent users per day: 32.461
+Total number of lab computers: 67
+Computer utilization = 32.461/67 = .48449
+number of trials to get this number = 1000
+
+From our data collection, it was established that for our sample, students come
+into the labs to use the computers at an average rate of 0.52 people per 60 minutes.
+This simulation was difficult to quantify so some assumptions were made based on what 
+was known. In general, people are using a lab computer for one of three reasons. 
+Printing something out, to waste time between classes, or to work on a bigger project.
+Printing something takes under 2 minutes usually, wasting time lasts on average of 
+40 minutes or so, and project people tend to stay for over an hour. Assuming that
+the midrange of people are most common, this was thought to follow a normal distribution.
+The simulation resulted in an average server utilization of less than half, and thus 
+it was concluded that under these conditions, pitt could stand to remove several computers
+from the lab.
+
+
+Operating System Bias Simulation Data
+
+Number of PCs: 44
+Number of macs: 21
+Average total users of PCs per day: 341.579
+Average total users of macs per day: 110.156
+Average of max concurrent users of macs per day: 11.014
+Average of max concurrent users of PCs per day: 25.786
+PC Utilization = 25.786/44 = 0.586
+Mac Utilization = 11.014/21 = 0.524
+number of trials it took to get this number = 1000
+
+The PC and Mac Utilization at pitt are fairly even with respect to how many
+of each the computer labs have, such that the operating system distribution
+of the labs is fine and does not need to be changed. However, this simulation
+also supports the general computer usage data, in that utilization for individual
+operating systems being around 50% lines up well with the overal computer utilization
+also being around 50%, and as such this simulation also supports cutting down on 
+the overall number of computers. It further shows that the thinning of computer 
+systems in the cathedral labs should be done in a way that is proportional to the 
+operating system. 
